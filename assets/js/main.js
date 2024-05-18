@@ -8,20 +8,7 @@
 		$sidebar = $('#sidebar'),
 		$main = $('#main');
 	
-    document.addEventListener('DOMContentLoaded', function () {
-        const expandButton = document.getElementById('expand-button');
-        const extendedContent = document.getElementById('extended-content');
 
-        expandButton.addEventListener('click', function () {
-            if (extendedContent.classList.contains('hidden')) {
-                extendedContent.classList.remove('hidden');
-                expandButton.textContent = 'Show Less';
-            } else {
-                extendedContent.classList.add('hidden');
-                expandButton.textContent = 'Continue Reading';
-            }
-        });
-    });
 
 
 	// Breakpoints.
