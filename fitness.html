@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link href="assets/css/fontawesome-all.min.css" rel="stylesheet" />
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<link rel="icon" href="images/icon.ico" />
 
 	</head>
@@ -115,13 +116,41 @@
                 </header>
 <p class="w3-large w3-center w3-padding-16">I'm going for it!</p>
 	<div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:70%">Pull ups 10 a row</div>
-  </div>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:80%">Bench 50Kg dumbells for 10 reps</div>
-  </div>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:55%">Squat 80Kgs for 10 reps</div>
+				    <h2>I'm going for it!</h2>
+    <canvas id="myBarChart" width="200" height="100"></canvas>
+    <script>
+        // JavaScript code to create the horizontal bar chart
+        const ctx = document.getElementById('myBarChart').getContext('2d');
+        const myBarChart = new Chart(ctx, {
+            type: 'bar', // Chart.js version 3+ uses 'bar' for both vertical and horizontal bars
+            data: {
+                labels: ['10 Pull ups in a row', '10 reps with 45Kg Dumbells', '10 reps with 80Kg'], // Only 3 labels
+                datasets: [{
+                    label: 'Recipes',
+                    data: [7, 7, 5], // Only 3 data points
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y', // This makes the bars horizontal
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
   </div>
 </div>
 </article>
