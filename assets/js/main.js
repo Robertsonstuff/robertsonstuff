@@ -92,3 +92,70 @@
 			});
 
 })(jQuery);
+document.addEventListener('DOMContentLoaded', function() {
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const trackTitle = document.getElementById('track-title');
+    const trackImage = document.getElementById('track-image');
+    const trackDuration = document.getElementById('track-duration');
+    const trackList = document.getElementById('track-list').getElementsByTagName('li');
+    const progressBar = document.getElementById('progress');
+    
+    let audio = new Audio();
+    let currentTrack = 0;
+    
+    function loadTrack(index) {
+        audio.src = trackList[index].getAttribute('data-track');
+        trackTitle.textContent = trackList[index].textContent;
+        trackImage.src = trackList[index].getAttribute('data-image') || 'default.jpg';
+        audio.load();
+        audio.addEventListener('loadedmetadata', function() {
+            trackDuration.textContent = formatTime(audio.duration);
+        });
+        audio.addEventListener('timeupdate', updateProgressBar);
+    }
+    
+    function updateProgressBar() {
+        const progress = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = progress + '%';
+    }
+    
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+    
+    playButton.addEventListener('click', function() {
+        audio.play();
+    });
+    
+    pauseButton.addEventListener('click', function() {
+        audio.pause();
+    });
+    
+    prevButton.addEventListener('click', function() {
+        currentTrack = (currentTrack > 0) ? currentTrack - 1 : trackList.length - 1;
+        loadTrack(currentTrack);
+        audio.play();
+    });
+    
+    nextButton.addEventListener('click', function() {
+        currentTrack = (currentTrack < trackList.length - 1) ? currentTrack + 1 : 0;
+        loadTrack(currentTrack);
+        audio.play();
+    });
+    
+    for (let i = 0; i < trackList.length; i++) {
+        trackList[i].addEventListener('click', function() {
+            currentTrack = i;
+            loadTrack(currentTrack);
+            audio.play();
+        });
+    }
+    
+    // Load the first track by default
+    loadTrack(currentTrack);
+});
