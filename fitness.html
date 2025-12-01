@@ -124,16 +124,20 @@
         const myBarChart = new Chart(ctx, {
             type: 'bar', // Chart.js version 3+ uses 'bar' for both vertical and horizontal bars
             data: {
-                labels: ['20 Pull-ups in a row', 'Run a marathon', ], // Only 3 labels
+                labels: ['20 Pull-ups in a row', 'Run a marathon', '150-pound bench press', '200-pound squat' ], // Only 3 labels
                 datasets: [{
                     label: 'Percent complete',
-                    data: [11/20*100, 6.3/26.2*100, 100], // Only 3 data points
+                    data: [11/20*100, 6.3/26.2*100, 100/150*100, 135/200*100, 100], // Only 3 data points
                     backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
                         'rgba(54, 162, 235, 0.2)'
                     ],
                     borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(54, 162, 235, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(54, 162, 235, 1)',
                         'rgba(54, 162, 235, 1)'
