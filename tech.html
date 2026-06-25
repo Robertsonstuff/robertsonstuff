@@ -153,7 +153,399 @@
         });
     </script>
 </article>
-						
+			<article class="post">
+                <header>
+                    <div class="title">
+                        <h2>How Email Works</h2>
+                        <p>Processes and protocols explained</p>
+                    </div>
+                    <div class="meta">
+                        <time class="published" datetime="June 2026">June 2026</time>
+                        <a href="#" class="author"><span class="name">Me</span><img src="images/1.jpg" alt=""></a>
+                    </div>
+                </header>
+<h2>Part 1 — The Journey of an Email</h2>
+
+<p>
+Most users think of email as a single service, but it's more accurate to view it as a chain of services working together.
+</p>
+
+<p>
+Whether you're running a business or have multiple personal mailboxes, you've probably experienced some level of email issue.
+Knowing where one service ends and another begins helps isolate problems instead of treating the whole chain as broken.
+</p>
+
+
+<p>
+Let's separate the services to understand what happens:
+</p>
+
+
+<div class="diagram">
+
+Your Client<br>
+↓<br>
+SMTP<br>
+↓<br>
+Your Mail Server<br>
+↓<br>
+DNS Lookup<br>
+↓<br>
+Receiving Mail Server<br>
+↓<br>
+IMAP / POP<br>
+↓<br>
+Email Retrieval
+
+</div>
+
+
+<p>
+Email is a <strong>"store and forward"</strong> system.
+Unlike a phone call, both mail servers can temporarily store messages while determining where they need to go next.
+</p>
+
+
+<p>
+What does this mean?
+Let's unpack each part.
+</p>
+
+
+<h3>1. Your Client</h3>
+
+<p>
+This is tech-speak for opening your email in a browser or mail app.
+Examples include Gmail, Outlook, Apple Mail, and others.
+</p>
+
+<p>
+It's your email display.
+</p>
+
+
+<h3>2. Your Mail Server</h3>
+
+<p>
+Your mail server receives, stores, and sends email.
+</p>
+
+<p>
+When sending messages, it uses DNS to locate the recipient's mail server.
+</p>
+
+
+<h3>3. Receiving Mail Server</h3>
+
+<p>
+If you're sending an email to a Gmail account, Google's mail server receives it.
+</p>
+
+<p>
+The receiving server performs authentication checks like SPF, DKIM, and DMARC.
+</p>
+
+
+<h3>4. Email Retrieval</h3>
+
+<p>
+The receiving email is displayed in the recipient's client using protocols like IMAP or POP3.
+</p>
+
+
+<p>
+That's it.
+That's email.
+</p>
+
+
+<hr>
+
+
+<h2>Part 2 — Email Security and Terminology</h2>
+
+
+<p>
+At this stage, I've used a bunch of terminology, so let's clear it up.
+</p>
+
+
+<h2>Mail Client</h2>
+
+<p>
+Example: Outlook.
+</p>
+
+<p>
+The mail client is the user interface and initial access point.
+It:
+</p>
+
+<ul>
+<li>Syncs and organizes folders</li>
+<li>Downloads attachments</li>
+<li>Displays messages</li>
+</ul>
+
+
+<p>
+Your client is not your mail server.
+</p>
+
+<p>
+The client is primarily an interface showing what exists on the mail server.
+Although many clients cache copies locally, the source of truth is usually the mail server.
+</p>
+
+
+<h2>Mail Server</h2>
+
+<p>
+Example: Exchange.
+</p>
+
+<p>
+The mail server handles:
+</p>
+
+<ul>
+<li>Email storage</li>
+<li>Sending and receiving messages</li>
+<li>Protocol handling</li>
+<li>DNS lookups</li>
+<li>Authentication checks</li>
+</ul>
+
+
+<h2>Email Protocols</h2>
+
+<p>
+Protocols are the language computers use to communicate.
+</p>
+
+
+<h3>Sending Email — SMTP</h3>
+
+<p>
+<strong>SMTP (Simple Mail Transfer Protocol)</strong> is responsible for submitting email from a client to a mail server and transferring email between mail servers.
+</p>
+
+
+<h3>Receiving Email</h3>
+
+
+<p>
+<strong>IMAP (Internet Message Access Protocol)</strong>
+</p>
+
+<p>
+IMAP mirrors your mail server to your email client.
+Your emails stay stored on the server.
+</p>
+
+
+<p>
+<strong>POP3 (Post Office Protocol)</strong>
+</p>
+
+<p>
+POP traditionally downloads email locally and may remove it from the server depending on configuration.
+</p>
+
+
+<p>
+This is less popular today because storing everything locally creates risks.
+A coffee spill over your laptop could destroy your storage, preferences, and email all at once.
+</p>
+
+
+<h2>Email Authentication — SPF, DKIM, DMARC</h2>
+
+
+<p>
+These are identity checks that confirm an email is who it claims to be.
+</p>
+
+
+<div class="note">
+
+<p>
+The receiving mail system queries DNS to retrieve SPF, DKIM, and DMARC records.
+These records live alongside your domain — they are not stored on your mail server.
+</p>
+
+</div>
+
+
+<h3>SPF</h3>
+
+<p>
+Checks whether the sending mail server is authorized to send email on behalf of the domain.
+</p>
+
+
+<h3>DKIM</h3>
+
+<p>
+Confirms the message was not altered in transit by validating a cryptographic signature.
+</p>
+
+
+<h3>DMARC</h3>
+
+<p>
+Defines what happens if SPF or DKIM fails:
+</p>
+
+<ul>
+<li>Reject the message?</li>
+<li>Quarantine it?</li>
+<li>Allow and monitor?</li>
+</ul>
+
+
+<h2>Mail Provider</h2>
+
+<p>
+Example: Microsoft.
+</p>
+
+<p>
+The provider owns and operates the mail server service.
+</p>
+
+
+<p>
+Examples:
+</p>
+
+<ul>
+<li>Use Outlook as a client + Exchange mail server + Microsoft as provider</li>
+<li>Use Outlook as a client + Google mail server + Google as provider</li>
+<li>Use Outlook as a client + your own mail server + yourself as provider</li>
+</ul>
+
+
+<h2>Secure Email Gateways (SEG)</h2>
+
+
+<p>
+A Secure Email Gateway is a third-party security layer that sits between the sender and your mail server.
+</p>
+
+<p>
+It checks:
+</p>
+
+<ul>
+<li>Spam</li>
+<li>Phishing</li>
+<li>Malware</li>
+<li>Email authentication</li>
+</ul>
+
+
+<p>
+Instead of your MX record pointing directly to your mail server, it points to the SEG first.
+</p>
+
+
+<h2>Modern Email Security and APIs</h2>
+
+<p>
+Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs.
+</p>
+
+<p>
+This can cause something called:
+</p>
+
+<h3>Zero-hour Auto Purge (ZAP)</h3>
+
+<p>
+An email may arrive safely, then later be identified as dangerous and removed automatically.
+</p>
+
+
+<h2>The Letter Analogy</h2>
+
+
+<p>
+A simple way to explain email is to compare it to sending a letter.
+</p>
+
+
+<ol>
+<li>Write a letter → email client</li>
+<li>Drop it at the post office → mail server</li>
+<li>Post office finds destination → DNS lookup</li>
+<li>Postal trucks move the letter → SMTP</li>
+<li>Receiving office checks identity → SPF/DKIM/DMARC</li>
+<li>User receives the letter → IMAP/POP</li>
+</ol>
+
+
+<h2>The Technical Explanation</h2>
+
+
+<p>
+Email uses a combination of protocols and services.
+</p>
+
+<p>
+A user sends an email from a client like Outlook or Gmail. The message is sent to a mail server using SMTP (ports 25 or 587).
+</p>
+
+<p>
+The mail server queries DNS for the recipient domain's MX records to locate the correct receiving server.
+</p>
+
+<p>
+The receiving server performs authentication checks before storing the message.
+</p>
+
+<p>
+The recipient accesses the message using IMAP or POP3.
+</p>
+
+
+<h2>Understanding Port Numbers</h2>
+
+
+<p>
+Ports are like doors into a server.
+Different services use different doors so computers know where traffic should go.
+</p>
+
+
+<ul>
+<li>SMTP: 25 / 587</li>
+<li>IMAP: 143 / 993</li>
+<li>POP3: 110 / 995</li>
+</ul>
+
+
+<p>
+The higher numbered ports are often associated with encrypted communication, but the security doesn't come from the port number itself.
+</p>
+
+
+<p>
+The protection comes from encryption protocols like TLS (Transport Layer Security).
+</p>
+
+
+<p>
+A service can often be upgraded to use TLS without changing the port.
+This is why STARTTLS exists.
+</p>
+
+
+<p>
+After all, there is no need to break a perfectly working system just to make it more secure.
+Much of modern IT is built by improving existing technology rather than replacing it entirely.
+</p>
+				   </article>	
 		<article class="post">
                 <header>
                     <div class="title">
