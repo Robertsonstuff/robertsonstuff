@@ -167,11 +167,7 @@
 <h2>Part 1 — The Journey of an Email</h2>
 
 <p>
-Most users think of email as a single service, but it's more accurate to view it as a chain of services working together.
-</p>
-
-<p>
-Whether you're running a business or have multiple personal mailboxes, you've probably experienced some level of email issue.
+Most users think of email as a single service, but it's more accurate to view it as a chain of services working together. Whether you're running a business or have multiple personal mailboxes, you've probably experienced some level of email issue.
 Knowing where one service ends and another begins helps isolate problems instead of treating the whole chain as broken.
 </p>
 
@@ -198,10 +194,9 @@ IMAP / POP<br>
 Email Retrieval
 
 </div>
-
-
+<br>
 <p>
-Email is a <strong>"store and forward"</strong> system.
+Think of email as a <strong>"store and forward"</strong> system.
 Unlike a phone call, both mail servers can temporarily store messages while determining where they need to go next.
 </p>
 
@@ -216,33 +211,21 @@ Let's unpack each part.
 
 <p>
 This is tech-speak for opening your email in a browser or mail app.
-Examples include Gmail, Outlook, Apple Mail, and others.
-</p>
-
-<p>
-It's your email display.
+Examples include Gmail, Outlook, Apple Mail, and others. It's your email display.
 </p>
 
 
 <h3>2. Your Mail Server</h3>
 
 <p>
-Your mail server receives, stores, and sends email.
-</p>
-
-<p>
-When sending messages, it uses DNS to locate the recipient's mail server.
+Your mail server receives, stores, and sends email. When sending messages, it uses DNS to locate the recipient's mail server.
 </p>
 
 
 <h3>3. Receiving Mail Server</h3>
 
 <p>
-If you're sending an email to a Gmail account, Google's mail server receives it.
-</p>
-
-<p>
-The receiving server performs authentication checks like SPF, DKIM, and DMARC.
+If you're sending an email to a Gmail account, Google's mail server receives it. The receiving server performs authentication checks like SPF, DKIM, and DMARC.
 </p>
 
 
@@ -273,11 +256,7 @@ At this stage, I've used a bunch of terminology, so let's clear it up.
 <h2>Mail Client</h2>
 
 <p>
-Example: Outlook.
-</p>
-
-<p>
-The mail client is the user interface and initial access point.
+Example: Outlook. The mail client is the user interface and initial access point.
 It:
 </p>
 
@@ -289,11 +268,7 @@ It:
 
 
 <p>
-Your client is not your mail server.
-</p>
-
-<p>
-The client is primarily an interface showing what exists on the mail server.
+Your client is not your mail server. The client is primarily an interface showing what exists on the mail server.
 Although many clients cache copies locally, the source of truth is usually the mail server.
 </p>
 
@@ -301,11 +276,7 @@ Although many clients cache copies locally, the source of truth is usually the m
 <h2>Mail Server</h2>
 
 <p>
-Example: Exchange.
-</p>
-
-<p>
-The mail server handles:
+Example: Exchange. The mail server handles:
 </p>
 
 <ul>
@@ -335,11 +306,7 @@ Protocols are the language computers use to communicate.
 
 
 <p>
-<strong>IMAP (Internet Message Access Protocol)</strong>
-</p>
-
-<p>
-IMAP mirrors your mail server to your email client.
+<strong>IMAP (Internet Message Access Protocol)</strong> IMAP mirrors your mail server to your email client.
 Your emails stay stored on the server.
 </p>
 
@@ -349,13 +316,7 @@ Your emails stay stored on the server.
 </p>
 
 <p>
-POP traditionally downloads email locally and may remove it from the server depending on configuration.
-</p>
-
-
-<p>
-This is less popular today because storing everything locally creates risks.
-A coffee spill over your laptop could destroy your storage, preferences, and email all at once.
+POP traditionally downloads email locally and may remove it from the server depending on configuration. This is less popular today because storing everything locally creates risks. A coffee spill over your laptop could destroy your storage, preferences, and email all in one cup.
 </p>
 
 
@@ -364,12 +325,7 @@ A coffee spill over your laptop could destroy your storage, preferences, and ema
 
 <p>
 These are identity checks that confirm an email is who it claims to be.
-</p>
-
-
 <div class="note">
-
-<p>
 The receiving mail system queries DNS to retrieve SPF, DKIM, and DMARC records.
 These records live alongside your domain — they are not stored on your mail server.
 </p>
@@ -407,11 +363,7 @@ Defines what happens if SPF or DKIM fails:
 <h2>Mail Provider</h2>
 
 <p>
-Example: Microsoft.
-</p>
-
-<p>
-The provider owns and operates the mail server service.
+Example: Microsoft. The provider owns and operates the mail server service.
 </p>
 
 
@@ -453,11 +405,7 @@ Instead of your MX record pointing directly to your mail server, it points to th
 <h2>Modern Email Security and APIs</h2>
 
 <p>
-Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs.
-</p>
-
-<p>
-This can cause something called:
+Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs. This can cause something called:
 </p>
 
 <h3>Zero-hour Auto Purge (ZAP)</h3>
@@ -471,7 +419,7 @@ An email may arrive safely, then later be identified as dangerous and removed au
 
 
 <p>
-A simple way to explain email is to compare it to sending a letter.
+Let's use an anaology to help communicate this to others using a who may be less technical than you.
 </p>
 
 
@@ -489,23 +437,7 @@ A simple way to explain email is to compare it to sending a letter.
 
 
 <p>
-Email uses a combination of protocols and services.
-</p>
-
-<p>
-A user sends an email from a client like Outlook or Gmail. The message is sent to a mail server using SMTP (ports 25 or 587).
-</p>
-
-<p>
-The mail server queries DNS for the recipient domain's MX records to locate the correct receiving server.
-</p>
-
-<p>
-The receiving server performs authentication checks before storing the message.
-</p>
-
-<p>
-The recipient accesses the message using IMAP or POP3.
+Email uses a combination of protocols and services. A user sends an email from a client like Outlook or Gmail. The message is sent to a mail server using SMTP (ports 25 or 587). The mail server queries DNS for the recipient domain's MX records to locate the correct receiving server. The receiving server performs authentication checks before storing the message. The recipient accesses the message using IMAP or POP3.
 </p>
 
 
@@ -526,17 +458,7 @@ Different services use different doors so computers know where traffic should go
 
 
 <p>
-The higher numbered ports are often associated with encrypted communication, but the security doesn't come from the port number itself.
-</p>
-
-
-<p>
-The protection comes from encryption protocols like TLS (Transport Layer Security).
-</p>
-
-
-<p>
-A service can often be upgraded to use TLS without changing the port.
+The higher numbered ports are often associated with encrypted communication, but the security doesn't come from the port number itself. The protection comes from encryption protocols like TLS (Transport Layer Security). A service can often be upgraded to use TLS without changing the port.
 This is why STARTTLS exists.
 </p>
 
