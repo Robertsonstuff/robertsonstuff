@@ -280,7 +280,7 @@ Example: Exchange. The mail server handles:
 <h2>Email Protocols</h2>
 
 <p>
-Protocols are the language computers use to communicate.
+Protocols are like a language. They are the set of rules computers use to communicate.
 </p>
 
 
@@ -295,16 +295,13 @@ Protocols are the language computers use to communicate.
 
 
 <p>
-<strong>IMAP (Internet Message Access Protocol)</strong> IMAP mirrors your mail server to your email client.
+<strong>IMAP (Internet Message Access Protocol)</strong> IMAP mirrors your mail server to display in your email client.
 Your emails stay stored on the server.
 </p>
 
 
 <p>
 <strong>POP3 (Post Office Protocol)</strong>
-</p>
-
-<p>
 POP traditionally downloads email locally and may remove it from the server depending on configuration. This is less popular today because storing everything locally creates risks. A coffee spill over your laptop could destroy your storage, preferences, and email all in one cup.
 </p>
 
@@ -316,9 +313,6 @@ POP traditionally downloads email locally and may remove it from the server depe
 These are identity checks that confirm an email is who it claims to be. The receiving mail system queries DNS to retrieve SPF, DKIM, and DMARC records.
 These records live alongside your domain — they are not stored on your mail server.
 </p>
-
-</div>
-
 
 <h3>SPF</h3>
 
@@ -338,39 +332,30 @@ Confirms the message was not altered in transit by validating a cryptographic si
 
 <p>
 Defines what happens if SPF or DKIM fails:
-</p>
-
 <ul>
 <li>Reject the message?</li>
 <li>Quarantine it?</li>
 <li>Allow and monitor?</li>
 </ul>
-
+</p>
 
 <h2>Mail Provider</h2>
 
 <p>
 Example: Microsoft. The provider owns and operates the mail server service.
-</p>
-
-
-<p>
 Examples:
-</p>
-
 <ul>
 <li>Use Outlook as a client + Exchange mail server + Microsoft as provider</li>
 <li>Use Outlook as a client + Google mail server + Google as provider</li>
 <li>Use Outlook as a client + your own mail server + yourself as provider</li>
 </ul>
-
+			</p>
 
 <h2>Secure Email Gateways (SEG)</h2>
 
 
 <p>
 A Secure Email Gateway is a third-party security layer that sits between the sender and your mail server. It checks:
-</p>
 
 <ul>
 <li>Spam</li>
@@ -379,7 +364,7 @@ A Secure Email Gateway is a third-party security layer that sits between the sen
 <li>Email authentication</li>
 </ul>
 
-
+			</p>
 <p>
 Instead of your MX record pointing directly to your mail server, it points to the SEG first.
 </p>
@@ -388,12 +373,7 @@ Instead of your MX record pointing directly to your mail server, it points to th
 <h2>Modern Email Security and APIs</h2>
 
 <p>
-Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs. This can cause something called:
-</p>
-
-<h3>Zero-hour Auto Purge (ZAP)</h3>
-
-<p>
+Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs. This can cause something called: <strong>Zero-hour Auto Purge (ZAP)</strong>
 An email may arrive safely, then later be identified as dangerous and removed automatically.
 </p>
 
@@ -403,9 +383,6 @@ An email may arrive safely, then later be identified as dangerous and removed au
 
 <p>
 Let's use an anaology to help communicate this to others using a who may be less technical than you.
-</p>
-
-
 <ol>
 <li>Write a letter → email client</li>
 <li>Drop it at the post office → mail server</li>
@@ -414,7 +391,7 @@ Let's use an anaology to help communicate this to others using a who may be less
 <li>Receiving office checks identity → SPF/DKIM/DMARC</li>
 <li>User receives the letter → IMAP/POP</li>
 </ol>
-
+			</p>
 
 <h2>The Technical Explanation</h2>
 
