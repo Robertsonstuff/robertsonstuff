@@ -291,7 +291,7 @@ POP traditionally downloads email locally and may remove it from the server depe
 </p>
 
 
-<h2>Email Authentication — SPF, DKIM, DMARC</h2>
+<h3>Email Authentication — SPF, DKIM, DMARC</h3>
 
 
 <p>
@@ -338,7 +338,7 @@ Here are some examples you'll see out in the wild:
 </ul>
 			</p>
 
-<h2>Secure Email Gateways (SEG)</h2>
+<h3>Secure Email Gateways (SEG)</h3>
 
 
 <p>
@@ -354,7 +354,7 @@ A Secure Email Gateway is a third-party security layer that sits between the sen
 Instead of your MX record pointing directly to your mail server, it points to the SEG instead.
 </p>
 
-<h2>Modern Email Security and APIs</h2>
+<h3>Modern Email Security and APIs</h3>
 
 <p>
 Modern platforms like Microsoft 365 and Google Workspace can analyze emails after delivery using APIs. This can cause something called: <strong>Zero-hour Auto Purge (ZAP)</strong>
@@ -378,36 +378,22 @@ Let's use an anaology to help communicate this to others using a who may be less
 			</p>
 
 <h2>The Technical Explanation</h2>
-
-
 <p>
 Email uses a combination of protocols and services. A user sends an email from a client like Outlook or Gmail. The message is sent to a mail server using SMTP (ports 25 or 587). The mail server queries DNS for the recipient domain's MX records to locate the correct receiving server. The receiving server performs authentication checks before storing the message. The recipient accesses the message using IMAP or POP3.
-</p>
 
+<STRONG>Understanding Port Numbers</strong>
 
-<h2>Understanding Port Numbers</h2>
-
-
-<p>
 Ports are like doors into a server.
 Different services use different doors so computers know where traffic should go.
-</p>
-
-
 <ul>
 <li>SMTP: 25 / 587</li>
 <li>IMAP: 143 / 993</li>
 <li>POP3: 110 / 995</li>
 </ul>
 
-
-<p>
 The higher numbered ports are often associated with encrypted communication, but the security doesn't come from the port number itself. The protection comes from encryption protocols like TLS (Transport Layer Security). A service can often be upgraded to use TLS without changing the port.
 This is why STARTTLS exists.
-</p>
-
-
-<p>
+<br>
 After all, there is no need to break a perfectly working system just to make it more secure.
 Much of modern IT is built by improving existing technology rather than replacing it entirely.
 </p>
