@@ -125,10 +125,10 @@
         const myBarChart = new Chart(ctx, {
             type: 'bar', // Chart.js version 3+ uses 'bar' for both vertical and horizontal bars
             data: {
-                labels: ['Write 52 Tech articles', 'Complete CompTIA A+ certification'], // Only 3 labels
+                labels: ['Write 17 Tech articles', 'Complete CompTIA A+ certification'], // Only 3 labels
                 datasets: [{
                     label: 'Percent complete',
-                    data: [6/17*100, 5, 100], // Only 3 data points
+                    data: [6/17*100, 10, 100], // Only 3 data points
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -168,10 +168,7 @@
 
 <p>
 Most users think of email as a single service, but it's more accurate to view it as a chain of services working together. Whether you're running a business or have multiple personal mailboxes, you've likely experienced some level of email issues. Knowing where one service ends and another begins helps isolate problems instead of treating the whole chain as broken.
-</p>
-
-
-<p>
+<br>
 Let's separate the services to understand what happens:
 </p>
 
@@ -179,17 +176,12 @@ Let's separate the services to understand what happens:
 <div class="diagram">
 
 Your Client<br>
-↓<br>
-SMTP<br>
+↓ SMTP<br>
 ↓<br>
 Your Mail Server<br>
-↓<br>
-DNS Lookup<br>
-↓<br>
+↓ DNS Lookup<br>
 Receiving Mail Server<br>
-↓<br>
-IMAP / POP<br>
-↓<br>
+↓ IMAP / POP<br>
 Email Retrieval
 
 </div>
@@ -247,27 +239,23 @@ At this stage, I've used a bunch of terminology, so let's clear it up.
 </p>
 
 
-<p><h2>Mail Client</h2> Example: Outlook. The mail client is the user interface and initial access point.
+<h3>Mail Client</h3><p>Example: Outlook. The mail client is the user interface and initial access point.
 It:
 <ul>
 <li>Syncs and organizes folders</li>
 <li>Downloads attachments</li>
 <li>Displays messages</li>
 </ul>
-</p>
-
-<p>
-Your client is not your mail server. The client is primarily an interface showing what exists on the mail server.
+<br>
+Your client is not to be confused with your mail server. The client is primarily an interface showing what exists on the mail server.
 Although many clients cache copies locally, the source of truth is usually the mail server.
 </p>
 
 
-<h2>Mail Server</h2>
+<h3>Mail Server</h3>
 
 <p>
 Example: Exchange. The mail server handles:
-</p>
-
 <ul>
 <li>Email storage</li>
 <li>Sending and receiving messages</li>
@@ -275,12 +263,11 @@ Example: Exchange. The mail server handles:
 <li>DNS lookups</li>
 <li>Authentication checks</li>
 </ul>
-
-
-<h2>Email Protocols</h2>
+Yep!, it handles a lot!</p>
+<h3>Email Protocols</h3>
 
 <p>
-Protocols are like a language. They are the set of rules computers use to communicate.
+Protocols are like a language. They are the set of rules computers use to communicate. There are three main protocols used when sending messages to clients and servers alike.
 </p>
 
 
@@ -302,7 +289,7 @@ Your emails stay stored on the server.
 
 <p>
 <strong>POP3 (Post Office Protocol)</strong>
-POP traditionally downloads email locally and may remove it from the server depending on configuration. This is less popular today because storing everything locally creates risks. A coffee spill over your laptop could destroy your storage, preferences, and email all in one cup.
+POP traditionally downloads email locally and may remove it from the server depending on configuration. This is a less popular today because storing your email on your device can be concerning if a coffee spill over your laptop. You've efficiently killed your storage, preferences, and email all in one cup.
 </p>
 
 
