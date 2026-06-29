@@ -177,7 +177,6 @@ Let's separate the services to understand what happens:
 
 Your Client<br>
 ↓ SMTP<br>
-↓<br>
 Your Mail Server<br>
 ↓ DNS Lookup<br>
 Receiving Mail Server<br>
@@ -246,7 +245,6 @@ It:
 <li>Downloads attachments</li>
 <li>Displays messages</li>
 </ul>
-<br>
 Your client is not to be confused with your mail server. The client is primarily an interface showing what exists on the mail server.
 Although many clients cache copies locally, the source of truth is usually the mail server.
 </p>
@@ -263,7 +261,7 @@ Example: Exchange. The mail server handles:
 <li>DNS lookups</li>
 <li>Authentication checks</li>
 </ul>
-Yep!, it handles a lot!</p>
+Yep, it handles a lot!</p>
 <h3>Email Protocols</h3>
 
 <p>
@@ -297,8 +295,10 @@ POP traditionally downloads email locally and may remove it from the server depe
 
 
 <p>
-These are identity checks that confirm an email is who it claims to be. The receiving mail system queries DNS to retrieve SPF, DKIM, and DMARC records.
-These records live alongside your domain — they are not stored on your mail server.
+These are identity checks that confirm an email is who it claims to be.the receiving mail system queries DNS to retrieve SPF, DKIM, and DMARC information and uses those records to validate the sender. These records are DNS records sitting alongside your Domain - as the name suggests. Your DNS records are not changed or amended on your mail server. They live on your hosting service.
+<br>
+but anyway, I digress.
+
 </p>
 
 <h3>SPF</h3>
@@ -318,19 +318,19 @@ Confirms the message was not altered in transit by validating a cryptographic si
 <h3>DMARC</h3>
 
 <p>
-Defines what happens if SPF or DKIM fails:
+Defines what happens if SPF or DKIM fails. Does it:
 <ul>
-<li>Reject the message?</li>
+<li>Reject the email entirely?</li>
 <li>Quarantine it?</li>
-<li>Allow and monitor?</li>
+<li>Or, does it allow it and monitor?</li>
 </ul>
 </p>
 
-<h2>Mail Provider</h2>
+<h3>Mail Provider</h3>
 
 <p>
-Example: Microsoft. The provider owns and operates the mail server service.
-Examples:
+Example: Microsoft. The provider owns and operates the mail server.
+Here are some examples you'll see out in the wild:
 <ul>
 <li>Use Outlook as a client + Exchange mail server + Microsoft as provider</li>
 <li>Use Outlook as a client + Google mail server + Google as provider</li>
@@ -351,11 +351,8 @@ A Secure Email Gateway is a third-party security layer that sits between the sen
 <li>Email authentication</li>
 </ul>
 
-			</p>
-<p>
-Instead of your MX record pointing directly to your mail server, it points to the SEG first.
+Instead of your MX record pointing directly to your mail server, it points to the SEG instead.
 </p>
-
 
 <h2>Modern Email Security and APIs</h2>
 
